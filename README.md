@@ -9,13 +9,17 @@ python -m venv .venv
 ./.venv/Scripts/Activate.ps1 (for Windows)
 ```
 
+# Install packages
+```
+cd todolist
+pip install -r requirements.txt
+```
 # Create database PostgreSQL
 
 # Create .env file and write data like .env-example
 
 # Create migrations
 ```
-cd to_do_list
 python manage.py makemigrations
 python manage.py migrate
 ```
