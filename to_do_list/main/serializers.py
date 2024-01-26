@@ -1,25 +1,13 @@
 from rest_framework import serializers 
-from main.models import Task, Category
+from main.models import To_Do_List
  
  
-class TaskSerializer(serializers.ModelSerializer):
-
+class ToDoListSerializer(serializers.ModelSerializer):
+ 
     class Meta:
-        model = Task
+        model = To_Do_List
         fields = ('id',
-                  'name',
-                  'description',
-                  'file',
-                  'created_at',
-                  'category'
-                  )
-        
-
-class CategorySerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Category
-        fields = ('id',
-                  'name',
-                  )
+                  'task_name',
+                  'task_description',
+                  'date_created')
         

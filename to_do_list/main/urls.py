@@ -1,8 +1,8 @@
-from .views import TaskViewSet, CategoryViewSet
-from rest_framework.routers import DefaultRouter
+from . import views
+from django.urls import path, re_path
 
-router = DefaultRouter()
-router.register(r'tasks', TaskViewSet)
-router.register(r'category', CategoryViewSet)
+urlpatterns = [
+    path('tasks', views.todolist_list),
+    re_path(r'^tasks/(?P<pk>[0-9]+)$', views.to_do_list_detail)
 
-urlpatterns = router.urls
+]
