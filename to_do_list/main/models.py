@@ -1,8 +1,13 @@
 from django.db import models
 
 
-class To_Do_List(models.Model):
-    id = models.AutoField(primary_key=True, auto_created=True)
-    task_name = models.CharField(unique=True)
-    task_description = models.CharField(max_length=80)
-    date_created = models.DateTimeField(auto_now_add=True)
+class Task(models.Model):
+    name = models.CharField(unique=True, max_length=255)
+    description = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+    file = models.FileField(blank=True)
+    category = models.ForeignKey('Category', on_delete=models.CASCADE, null=True, blank=True)
+
+
+class Category(models.Model):
+    name = models.CharField(unique=True, max_length=255)

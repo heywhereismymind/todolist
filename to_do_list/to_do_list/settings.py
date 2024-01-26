@@ -11,16 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-from dotenv import load_dotenv
-import os
 
-load_dotenv()
-
-# Credentials from .env file
-SECRET = os.getenv('SECRET')
-PG_NAME = os.getenv('PG_NAME')
-PG_USER = os.getenv('PG_USER')
-PG_PASSWORD = os.getenv('PG_USER')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,12 +21,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = SECRET
+# SECRET_KEY = SECRET
+SECRET_KEY = 'django-insecure-&(^#+ecsw2*#!26s&04f5-kpsy^(6f8o@guip$rrsismg()7+^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
 
 
 # Application definition
@@ -96,12 +88,8 @@ WSGI_APPLICATION = 'to_do_list.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': PG_NAME,
-        'USER': PG_USER,
-        'PASSWORD': PG_PASSWORD,
-        'HOST': 'localhost',
-        'PORT': '5432'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'sqlite3',
     }
 }
 
